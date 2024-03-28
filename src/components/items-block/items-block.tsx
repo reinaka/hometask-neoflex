@@ -9,7 +9,7 @@ type TProps = {
 
 export const ItemsBlock = (props: TProps) => {
     return (
-        <div className={styles.general}>
+        <section className={styles.general}>
             <h2 className={styles.heading}>{props.heading}</h2>
             <ul className={styles.layout}>
                 {
@@ -22,7 +22,7 @@ export const ItemsBlock = (props: TProps) => {
                     })
                 }
             </ul>
-        </div>
+        </section>
         
     )
 }
