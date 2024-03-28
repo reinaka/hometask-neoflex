@@ -1,6 +1,4 @@
-import styles from './bucket-page.module.css';
-
-export function BucketPage() {
+export const BucketPage = () => {
     return (
         <div>bucket page</div>
     )

@@ -1,0 +1,27 @@
+.general {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #FFA542;
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    right: 15%;
+}

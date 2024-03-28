@@ -1,4 +1,4 @@
-export function Footer() {
+export const Footer = () => {
     return (
         <footer>
             <p>footer</p>

@@ -1,0 +1,19 @@
+.general {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerNavigation {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerNavigation_icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
