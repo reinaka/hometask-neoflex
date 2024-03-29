@@ -1,0 +1,45 @@
+.general {
+    background-color: #fff;
+    border-radius: 30px 30px 0px 0px;
+    padding: 29px 27px 33px 29px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navigationLayout {
+    max-width: 427px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.navigation p:first-child {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.additionalNavigation {
+    display: flex;
+    flex-direction: row;
+}
+
+.additionalNavigation img,  .additionalNavigation p:first-of-type {
+    margin-right: 17px;
+}
+
+.navigation li {
+    cursor: pointer;
+}
+
+.navigation li:not(:last-child) {
+    margin-bottom: 10px;
+}

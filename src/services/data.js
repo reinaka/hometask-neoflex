@@ -33,7 +33,7 @@ export const headphones = [
         discount: false
     },
     {   
-        id: '1f1s1',
+        id: '1fedc1s1',
         img: image1,
         title: 'Apple BYZ S852I',
         price: 2927,
@@ -42,7 +42,7 @@ export const headphones = [
         previousPrice: 3527
     },
     {
-        id: '1r1a2',
+        id: '1rrt1a2',
         img: image2,
         title: 'Apple EarPods',
         price: 2327,
@@ -50,7 +50,7 @@ export const headphones = [
         discount: false
     },
     {
-        id: '1k1q3',
+        id: '1kws1q3',
         img: image3,
         title: 'Apple EarPods',
         price: 2327,
