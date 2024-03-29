@@ -1,3 +1,7 @@
+.general a:visited {
+    color: #101010;
+}
+
 .logo {
     font-weight: 700;
     font-size: 25px;
