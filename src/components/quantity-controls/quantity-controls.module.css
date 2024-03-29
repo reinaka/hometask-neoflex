@@ -1,0 +1,17 @@
+.general {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+.button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: #FFCE7F;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

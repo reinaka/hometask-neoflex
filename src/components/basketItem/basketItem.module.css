@@ -1,0 +1,57 @@
+.general {
+    background: #FFFFFF;
+    border-radius: 30px;
+    width: 633px;
+    padding: 18px 28px 15px 18px;
+    display: flex;
+    flex-direction: row;
+    gap: 23px;
+    justify-content: space-between;
+}
+
+.photoAndQuantity {
+    display: flex;
+    flex-direction: column;
+    max-width: 136px;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+}
+
+.image {
+    max-height: 136px;
+}
+
+.deleteAndPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 100px;
+    align-items: end;
+}
+
+.titleAndPrice {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.titleAndPrice .price {
+    color: #AAAAAA;
+
+}
+
+.title {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.price {
+    font-size: 15px;
+}
+
+.delete {
+    cursor: pointer;
+}
