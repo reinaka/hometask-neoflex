@@ -3,7 +3,7 @@ import { TItem } from '../../services/types';
 import { QuantityControls } from '../quantity-controls/quantity-controls';
 import styles from './basketItem.module.css';
 import { useCallback } from 'react';
-import { DELETE_FROM_BASKET } from '../../services/action-types';
+import { REMOVE_FROM_BASKET } from '../../services/action-types-basket';
 
 type TProps = {
     item : TItem,
@@ -15,15 +15,14 @@ export const BasketItem = (props : TProps) => {
 
      // удаление из корзины
     const deleteFromBasket = useCallback((props : TProps) => {
-        console.log('jjj');
-        dispatch({type: DELETE_FROM_BASKET, payload: {item: props.item, quantity: props.quantity}})
+        dispatch({type: REMOVE_FROM_BASKET, payload: {id: props.item.id, price: props.item.price, quantity: props.quantity}})
     }, [dispatch]);
 
     return (
         <div className={styles.general}>
             <div className={styles.photoAndQuantity}>
                 <img src={props.item.img} alt={props.item.title} className={styles.image}/>
-                <QuantityControls quantity={props.quantity}/>
+                <QuantityControls quantity={props.quantity} id={props.item.id} price={props.item.price}/>
             </div>
             <div className={styles.titleAndPrice}>
                 <div className={styles.title}>{props.item.title}</div>

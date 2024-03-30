@@ -2,7 +2,7 @@ import styles from './card.module.css';
 import { TItem } from '../../services/types';
 import { useCallback } from 'react';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
-import { ADD_TO_BASKET } from '../../services/action-types';
+import { ADD_TO_BASKET } from '../../services/action-types-basket';
 
 
 export const Card = (props: {data: TItem}) => {

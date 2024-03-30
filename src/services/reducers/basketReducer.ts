@@ -1,4 +1,4 @@
-import { basketActions } from "../action-types";
+import { basketActions } from "../action-types-basket";
 import { TBasketItem } from "../types";
 
 type TState = {
@@ -53,12 +53,50 @@ export const basketReducer = (state = initialState, action : basketActions) : TS
                 }
             }
         }
-        case 'DELETE_FROM_BASKET' : {
+        case 'REMOVE_FROM_BASKET' : {
             let newArr = state.items_basket.filter((elem : TBasketItem) => {
-                return elem.item.id !== action.payload.item.id;
+                return elem.item.id !== action.payload.id;
             });
             let newQiantity = state.totalQuantity - action.payload.quantity;
-            let newTotalCost = state.totalCost - (action.payload.item.price * action.payload.quantity);
+            let newTotalCost = state.totalCost - (action.payload.price * action.payload.quantity);
+            return {
+                ...state,
+                items_basket: newArr,
+                totalCost: newTotalCost,
+                totalQuantity: newQiantity
+            }
+        }
+        case 'INCREASE_BASKET_QUANTITY' : {
+            let newQiantity = state.totalQuantity + 1;
+            let newTotalCost = state.totalCost + action.payload.price;
+            let newArr = state.items_basket.map((elem : TBasketItem) => {
+                if (elem.item.id === action.payload.id) {
+                    let newItem = {
+                        item: elem.item,
+                        quantity: elem.quantity + 1
+                    }
+                    return newItem;
+                } else return elem;
+            })
+            return {
+                ...state,
+                items_basket: newArr,
+                totalCost: newTotalCost,
+                totalQuantity: newQiantity
+            }
+        }
+        case 'DECREASE_BASKET_QUANTITY' : {
+            let newQiantity = state.totalQuantity - 1;
+            let newTotalCost = state.totalCost - action.payload.price;
+            let newArr = state.items_basket.map((elem : TBasketItem) => {
+                if (elem.item.id === action.payload.id) {
+                        let newItem = {
+                            item: elem.item,
+                            quantity: elem.quantity - 1
+                        }
+                        return newItem;
+                } else return elem;
+            });
             return {
                 ...state,
                 items_basket: newArr,

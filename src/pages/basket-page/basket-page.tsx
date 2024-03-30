@@ -25,7 +25,7 @@ export const BasketPage = () => {
                             }
                         </ul>
                         )
-                    : <div>no items</div>
+                    : <div>Товаров нет</div>
                 }
                 <BasketTotal sum={totalSum} />
             </div>

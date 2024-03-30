@@ -1,11 +1,11 @@
 import { useAppSelector } from '../../services/hooks/reduxTypes';
-import { selectTotalQuality } from '../../services/selector-functions';
+import { selectTotalQuantity } from '../../services/selector-functions';
 import { HeaderIcon } from '../header-icon/header-icon';
 import { Logo } from "../logo/logo";
 import styles from './header.module.css';
 
 export const Header = () => {
-    let totalQuantity = useAppSelector(selectTotalQuality);
+    let totalQuantity = useAppSelector(selectTotalQuantity);
     return (
         <header className={styles.general}>
             <Logo />
