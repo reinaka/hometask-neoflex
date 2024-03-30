@@ -1,4 +1,4 @@
-export type TCard = {
+export type TItem = {
     id: string,
     img: string,
     title: string,
@@ -6,4 +6,9 @@ export type TCard = {
     rate: number,
     discount: boolean,
     previousPrice? : number
+}
+
+export type TBasketItem = {
+    item : TItem,
+    quantity : number
 }

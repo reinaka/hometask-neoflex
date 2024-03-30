@@ -1,8 +1,21 @@
 import styles from './card.module.css';
-import { TCard } from '../../services/types';
+import { TItem } from '../../services/types';
+import { useCallback } from 'react';
+import { useAppDispatch } from '../../services/hooks/reduxTypes';
+import { ADD_TO_BASKET } from '../../services/action-types';
 
-export const Card = (props: {data: TCard}) => {
+
+export const Card = (props: {data: TItem}) => {
     let data = props.data;
+    const dispatch = useAppDispatch();
+
+    // добавление в корзину
+    const addToBasket = useCallback((item : TItem) => {
+        dispatch({type: ADD_TO_BASKET, payload: item})
+    }, [dispatch]);
+
+
+
     return (
         <div className={styles.general}>
             <div className={styles.image}>
@@ -20,7 +33,7 @@ export const Card = (props: {data: TCard}) => {
                     </svg>
                     <span>{data.rate}</span>
                 </div>
-                <button className={styles.button}>Купить</button>
+                <button className={styles.button} onClick={() => {addToBasket(data)}}>Купить</button>
             </div>
         </div>
     )
