@@ -1,4 +1,4 @@
-import { TItem } from "./types";
+import { TBasketItem, TItem } from "./types";
 
 export const ADD_TO_BASKET : 'ADD_TO_BASKET' = 'ADD_TO_BASKET';
 export const DELETE_FROM_BASKET : 'DELETE_FROM_BASKET' = 'DELETE_FROM_BASKET';
@@ -8,6 +8,6 @@ export interface IAddToBasket {
 }
 export interface deleteFromBasket {
     readonly type: typeof DELETE_FROM_BASKET,
-    readonly payload: string,
+    readonly payload: TBasketItem,
 }
 export type basketActions = IAddToBasket | deleteFromBasket;

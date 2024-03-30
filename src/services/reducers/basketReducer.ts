@@ -53,6 +53,19 @@ export const basketReducer = (state = initialState, action : basketActions) : TS
                 }
             }
         }
+        case 'DELETE_FROM_BASKET' : {
+            let newArr = state.items_basket.filter((elem : TBasketItem) => {
+                return elem.item.id !== action.payload.item.id;
+            });
+            let newQiantity = state.totalQuantity - action.payload.quantity;
+            let newTotalCost = state.totalCost - (action.payload.item.price * action.payload.quantity);
+            return {
+                ...state,
+                items_basket: newArr,
+                totalCost: newTotalCost,
+                totalQuantity: newQiantity
+            }
+        }
         default : {
             return state;
         }
