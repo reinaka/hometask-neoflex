@@ -1,0 +1,21 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #838383;
+    gap: 30px;
+}
+
+.wrapper a, .wrapper a:visited {
+    color: #fff;
+}
+
+.pseudoButton {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #FFA542;
+}

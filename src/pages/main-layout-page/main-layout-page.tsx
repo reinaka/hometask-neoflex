@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../services/hooks/reduxTypes"
 import { selectItemDetails } from "../../services/selector-functions";
 import { DELETE_ITEM_DETAILS } from "../../services/actions/action-types-item-details";
 import { useCallback } from "react";
+import { ItemDetailsModal } from "../../components/modal/item-details-modal/item-details-modal";
 
 export const MainLayoutPage = () => {
     let itemDetails = useAppSelector(selectItemDetails);
@@ -27,8 +28,8 @@ export const MainLayoutPage = () => {
             </div>
 
             {itemDetails.selectedItem && 
-                <Modal onClose={closeItemDetailsModal} title="Информация о товаре">
-                    <div>test</div>
+                <Modal onClose={closeItemDetailsModal}>
+                    <ItemDetailsModal />
                 </Modal>
             }
         </>

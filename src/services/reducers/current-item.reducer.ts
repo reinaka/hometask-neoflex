@@ -1,7 +1,15 @@
 import { itemDetailsActions } from "../actions/action-types-item-details";
 
 const initialState = {
-    item : {},
+    item : {
+        id: '',
+        img: '',
+        title: '',
+        price: 0,
+        rate: 0,
+        discount: false,
+        previousPrice: 0
+    },
     selectedItem : false
 }
 

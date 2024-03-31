@@ -1,7 +1,22 @@
 import { ItemsBlock } from '../../components/items-block/items-block';
-import { headphones, wireless_headphones } from '../../services/data';
+import { useAppSelector } from '../../services/hooks/reduxTypes';
+import { selectAllItems } from '../../services/selector-functions';
+import { useMemo } from 'react';
+import { TItem } from '../../services/types';
 
 export const MainPage = () => {
+    const items = useAppSelector(selectAllItems);
+
+    const headphones = useMemo(() => {
+        let result = items.filter((elem : TItem) => elem.type === 'headphones');
+        return result;
+    }, [items]);
+    
+    const wireless_headphones = useMemo(() => {
+        return items.filter((elem : TItem) => elem.type === 'wireless_headphones');
+        
+    }, [items]);
+
     return (
         <div>
             <ItemsBlock data={headphones} heading='Наушники'/>

@@ -5,7 +5,9 @@ export type TItem = {
     price: number,
     rate: number,
     discount: boolean,
-    previousPrice? : number
+    previousPrice? : number,
+    type: string,
+    favorite: boolean
 }
 
 export type TBasketItem = {

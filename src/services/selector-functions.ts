@@ -1,5 +1,9 @@
 import { TStore } from "./store";
 
+export function selectAllItems (store : TStore) {
+    return store.allItems;
+}
+
 export function selectTotalQuantity (store : TStore) {
     return store.basket.totalQuantity;
 }

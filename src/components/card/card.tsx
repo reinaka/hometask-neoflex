@@ -4,6 +4,7 @@ import { useCallback } from 'react';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
 import { ADD_TO_BASKET } from '../../services/actions/action-types-basket';
 import { ADD_ITEM_DETAILS } from '../../services/actions/action-types-item-details';
+import { SWITCH_FAVORITE } from '../../services/actions/action-types-allItems';
 
 type TProps = {
     data: TItem,
@@ -23,10 +24,23 @@ export const Card = (props: TProps) => {
         dispatch({type: ADD_ITEM_DETAILS, payload: item})
     }, [dispatch]);
 
+    // добавить в избранное/удалить из избранного
+    const switchFavorite = useCallback((item : TItem) => {
+        dispatch({type: SWITCH_FAVORITE, payload: item.id})
+    }, [dispatch]);
+
     return (
         <div className={styles.general}>
+            <div className={styles.likeAndInfo}>
+                <svg x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256" onClick={() => {openItemDetails(data)}}>
+                    <g fill="#838383" stroke="none"><g transform="scale(8,8)"><path d="M16,3c-7.16797,0 -13,5.83203 -13,13c0,7.16797 5.83203,13 13,13c7.16797,0 13,-5.83203 13,-13c0,-7.16797 -5.83203,-13 -13,-13zM16,5c6.08594,0 11,4.91406 11,11c0,6.08594 -4.91406,11 -11,11c-6.08594,0 -11,-4.91406 -11,-11c0,-6.08594 4.91406,-11 11,-11zM15,10v2h2v-2zM15,14v8h2v-8z"></path></g></g>
+                </svg>
+                <svg height="28" version="1.1" width="28" onClick={() => {switchFavorite(data)}}>
+                    <g transform="translate(0 -1028.4)"><path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill={data.favorite ? '#ef0833' : "#838383"}/></g>
+                </svg>
+            </div>
             <div className={styles.image}>
-                <img src={data.img} alt={data.title} onClick={() => {openItemDetails(data)}}/>
+                <img src={data.img} alt={data.title}/>
             </div>
             <div className={styles.info}>
                 <div>{data.title}</div>

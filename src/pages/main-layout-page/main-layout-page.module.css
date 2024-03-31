@@ -12,6 +12,7 @@
 
 .main {
     display: flex;
+    flex-direction: column;
     flex: 1 1 auto;
     max-width: 1110px;
     margin: 0 auto;
