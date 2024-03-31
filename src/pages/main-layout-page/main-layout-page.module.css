@@ -1,6 +1,8 @@
 .general {
-    max-width: 1110px;
     margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .noScroll {
@@ -9,7 +11,11 @@
 }
 
 .main {
-    min-height: calc(100vh - 210px);
+    display: flex;
+    flex: 1 1 auto;
+    max-width: 1110px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 @media (max-width: 1200px) {

@@ -13,6 +13,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #EAEAEA;
   color: 101010;
+  height: 100%;
+  position: relative;
 }
 
 a {
