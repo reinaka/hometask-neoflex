@@ -2,10 +2,14 @@ import styles from './card.module.css';
 import { TItem } from '../../services/types';
 import { useCallback } from 'react';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
-import { ADD_TO_BASKET } from '../../services/action-types-basket';
+import { ADD_TO_BASKET } from '../../services/actions/action-types-basket';
+import { ADD_ITEM_DETAILS } from '../../services/actions/action-types-item-details';
 
+type TProps = {
+    data: TItem,
+}
 
-export const Card = (props: {data: TItem}) => {
+export const Card = (props: TProps) => {
     let data = props.data;
     const dispatch = useAppDispatch();
 
@@ -14,12 +18,15 @@ export const Card = (props: {data: TItem}) => {
         dispatch({type: ADD_TO_BASKET, payload: item})
     }, [dispatch]);
 
-
+    // выбор товара для просмотра деталей
+    const openItemDetails = useCallback((item : TItem) => {
+        dispatch({type: ADD_ITEM_DETAILS, payload: item})
+    }, [dispatch]);
 
     return (
         <div className={styles.general}>
             <div className={styles.image}>
-                <img src={data.img} alt={data.title}/>
+                <img src={data.img} alt={data.title} onClick={() => {openItemDetails(data)}}/>
             </div>
             <div className={styles.info}>
                 <div>{data.title}</div>

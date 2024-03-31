@@ -9,20 +9,21 @@ type TProps = {
 
 export const ItemsBlock = (props: TProps) => {
     return (
-        <section className={styles.general}>
-            <h2 className={styles.heading}>{props.heading}</h2>
-            <ul className={styles.layout}>
-                {
-                    props.data.map((item : TItem) => {
-                        return (
-                            <li key={item.id}>
-                                <Card data={item} />
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </section>
-        
+        <>
+            <section className={styles.general}>
+                <h2 className={styles.heading}>{props.heading}</h2>
+                <ul className={styles.layout}>
+                    {
+                        props.data.map((item : TItem) => {
+                            return (
+                                <li key={item.id}>
+                                    <Card data={item} />
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </section>
+        </>
     )
 }

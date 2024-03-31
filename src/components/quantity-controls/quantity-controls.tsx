@@ -1,4 +1,4 @@
-import { DECREASE_BASKET_QUANTITY, INCREASE_BASKET_QUANTITY, REMOVE_FROM_BASKET } from '../../services/action-types-basket';
+import { DECREASE_BASKET_QUANTITY, INCREASE_BASKET_QUANTITY, REMOVE_FROM_BASKET } from '../../services/actions/action-types-basket';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
 import styles from './quantity-controls.module.css';
 

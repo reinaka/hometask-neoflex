@@ -6,7 +6,7 @@ import { SMMLinks } from "../smmLinksBlock/smmLinksBlock";
 export const Footer = () => {
     return (
         <footer className={style.general}>
-            <Logo />
+            <span className={style.logo}><Logo /></span>
             <nav className={style.navigationLayout}>
                 <ul className={style.navigation}>
                     <li>Избранное</li>
@@ -23,7 +23,7 @@ export const Footer = () => {
                     </div>
                 </div> 
             </nav>
-            <SMMLinks />
+            <span className={style.smmLinks}><SMMLinks /></span>
         </footer>
     )
 }

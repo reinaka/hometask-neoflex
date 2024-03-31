@@ -18,6 +18,10 @@
     gap: 19px;
 }
 
+.photoAndQuantity img {
+    max-width: 100%;
+}
+
 .image {
     max-height: 136px;
 }
@@ -54,4 +58,44 @@
 
 .delete {
     cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .general {
+        width: 580px;
+    }
+}
+
+@media (max-width: 768px) {
+    .general {
+        max-width: 100%;
+    }
+
+    .deleteAndPrice {
+        min-width: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .general {
+        display: grid;
+        grid-template-columns: 8fr 2fr;
+        grid-template-rows: 4fr 1fr;
+        grid-template-areas: 
+            "left1 right1"
+            "left2 right1";
+        padding: 15px;
+    }
+
+    .photoAndQuantity {
+        grid-area: left1;
+    }
+
+    .titleAndPrice {
+        grid-area: left2;
+    }
+
+    .deleteAndPrice {
+        grid-area: right1;
+    }
 }

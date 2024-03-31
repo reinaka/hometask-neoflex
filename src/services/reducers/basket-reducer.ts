@@ -1,4 +1,4 @@
-import { basketActions } from "../action-types-basket";
+import { basketActions } from "../actions/action-types-basket";
 import { TBasketItem } from "../types";
 
 type TState = {

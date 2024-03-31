@@ -27,7 +27,9 @@ export const BasketPage = () => {
                         )
                     : <div>Товаров нет</div>
                 }
-                <BasketTotal sum={totalSum} />
+                <div className={styles.totalWrapper}>
+                    <BasketTotal sum={totalSum} />
+                </div>
             </div>
         </>
     )

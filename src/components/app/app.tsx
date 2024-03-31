@@ -4,7 +4,7 @@ import { BasketPage } from "../../pages/basket-page/basket-page";
 import { MainPage } from "../../pages/main-page/main-page";
 import { FavouritesPage } from "../../pages/favourites-page/favourites-page";
 
-export const App = () => {
+export const App = () => {      
     return (
         <Routes>
             <Route path="/" element={<MainLayoutPage />}>

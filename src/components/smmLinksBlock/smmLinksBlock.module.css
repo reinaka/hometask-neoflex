@@ -8,3 +8,13 @@
 .socialMediaLinks a {
     cursor: pointer;
 }
+
+@media (max-width: 576px) {
+    .socialMediaLinks {
+        gap: 8px;
+    }
+
+    .socialMediaLinks a svg {
+        max-width: 25px;
+    }
+}

@@ -11,3 +11,7 @@ export function selectTotalCost (store : TStore) {
 export function selectBasket (store : TStore) {
     return store.basket.items_basket;
 }
+
+export function selectItemDetails (store : TStore) {
+    return store.currentItem;
+}
