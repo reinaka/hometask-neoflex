@@ -1,0 +1,22 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #838383;
+    color: #fff;
+    border: none;
+    max-width: 220px;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: #000;
+}

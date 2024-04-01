@@ -18,6 +18,10 @@
     width: 100%;
 }
 
+.button a, .button a:visited {
+    color: #fff;
+}
+
 .button:active {
     background: #838383;
 }

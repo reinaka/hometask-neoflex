@@ -5,6 +5,7 @@ import { MainPage } from "../../pages/main-page/main-page";
 import { FavouritesPage } from "../../pages/favourites-page/favourites-page";
 import { ContactsPage } from "../../pages/contacts-page/contacts-page";
 import { Page404 } from "../../pages/page-404/page-404";
+import { PaymentPage } from "../../pages/payment-page/payment-page";
 
 export const App = () => {      
     return (
@@ -14,6 +15,7 @@ export const App = () => {
                 <Route path="/basket" element={<BasketPage />} />
                 <Route path="/favourites" element={<FavouritesPage />} />
                 <Route path="/contacts" element={<ContactsPage />} />
+                <Route path="/payment" element={<PaymentPage />} />
             </Route>
             <Route path="*" element={< Page404 />} />
         </Routes>

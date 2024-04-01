@@ -26,7 +26,7 @@
     font-size: 17px;
 }
 
-.navigation li a, .navigation li a:visited{
+.navigation a, .navigation a:visited{
     color: #000;
 }
 
