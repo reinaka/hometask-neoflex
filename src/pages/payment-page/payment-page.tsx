@@ -5,7 +5,7 @@ export const PaymentPage = () => {
     return (
         <div className={styles.general}>
             <div className={styles.wrapper}>
-                <h2>Введите данные карты</h2>
+                <h2 className={styles.heading}>Введите данные карты</h2>
                 <PaymentForm />
             </div>
         </div>
