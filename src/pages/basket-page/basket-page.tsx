@@ -32,10 +32,13 @@ export const BasketPage = () => {
                     : <div>Товаров нет</div>
                 }
 
-                {/* Блок с общей ценой заказа и кнопкой для перехода к оплате */}
-                <div className={styles.totalWrapper}>
-                    <BasketTotal sum={totalSum} />
-                </div>
+                {/* Блок с общей ценой заказа и кнопкой для перехода к оплате (отображается только в случае, если сумма > 0) */}
+                {totalSum 
+                    ? (<div className={styles.totalWrapper}>
+                        <BasketTotal sum={totalSum} />
+                    </div>)
+                    : <></>
+                }               
             </div>
         </>
     )

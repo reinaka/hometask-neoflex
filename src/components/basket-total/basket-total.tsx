@@ -6,7 +6,7 @@ type TProps = {
 }
 
 export const BasketTotal = (props : TProps) => {
-    return props.sum ? (
+    return (
         <div className={styles.general}>
             <div className={styles.text}>
                 <p className={styles.totalSum_text}>Итого</p>
@@ -18,5 +18,5 @@ export const BasketTotal = (props : TProps) => {
                 </button>
             </NavLink>
         </div>
-    ) : <></>
+    )
 }
