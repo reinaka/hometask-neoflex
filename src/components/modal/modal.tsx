@@ -12,12 +12,14 @@ export type TModal = {
 };
 
 export const Modal:FC<TModal> = (props) => {
+    // функция закрытия модального окна по клику на полупрозрачный слой под окном
     useEffect(() => {
         function closeByEsc(e : KeyboardEvent) {if(e.key === 'Escape') props.onClose()}
         document.addEventListener('keydown', closeByEsc);
         return () => {document.removeEventListener('keydown', closeByEsc)}
     }, [props]);
 
+    // модальное окно
     const element = (
         <>
             <ModalOverlay onClick={props.onClose} />

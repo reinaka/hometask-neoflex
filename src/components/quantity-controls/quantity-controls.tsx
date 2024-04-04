@@ -8,6 +8,7 @@ type TProps = {
     price: number
 }
 
+// Кнопки "+" и "-" для изменения количества товаров в корзине
 export const QuantityControls = (props : TProps) => {
     const dispatch = useAppDispatch();
 

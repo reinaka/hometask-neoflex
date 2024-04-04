@@ -16,7 +16,7 @@ export const MainLayoutPage = () => {
     const closeItemDetailsModal = useCallback(() => {
         dispatch({type : DELETE_ITEM_DETAILS, payload : itemDetails.item})
     }, [dispatch, itemDetails.item]);
-
+    
     return (
         <>
             <div className={itemDetails.selectedItem ?  `${styles.general} ${styles.noScroll}` : styles.general}>
@@ -27,6 +27,7 @@ export const MainLayoutPage = () => {
                 <Footer />
             </div>
 
+            {/* Модальное окно с информацией о товаре открывается при появлении в сторе данных в currentItem */}
             {itemDetails.selectedItem && 
                 <Modal onClose={closeItemDetailsModal}>
                     <ItemDetailsModal />

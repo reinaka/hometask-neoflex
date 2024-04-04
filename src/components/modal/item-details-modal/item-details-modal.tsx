@@ -2,6 +2,7 @@ import { useAppSelector } from '../../../services/hooks/reduxTypes';
 import { selectItemDetails } from '../../../services/selector-functions';
 import styles from './item-details-modal.module.css';
 
+// наполнение для модального окна с деталями о товаре
 export const ItemDetailsModal = () => {
     let data = useAppSelector(selectItemDetails);
 

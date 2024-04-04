@@ -13,6 +13,7 @@ export const Header = () => {
         return items.filter((elem : TItem) => elem.favorite);
     }, [items]);
 
+
     return (    
             <header className={styles.general}>
                 <div className={styles.wrapper}>

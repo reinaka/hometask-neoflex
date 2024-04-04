@@ -13,6 +13,7 @@ export const PaymentForm = () => {
         focus: '' as Focused,
     });
 
+    // хэндлер для изменения данных в полях формы
     const handleInputChange = (evt : React.ChangeEvent<HTMLInputElement>) => {
         let { name, value } = evt.target;
 
@@ -25,10 +26,11 @@ export const PaymentForm = () => {
             } else if (name === "name") {
                 value = formatTextInput(value);
             }
-        
+
     setState((prev) => ({ ...prev, [name]: value }));
     }
     
+    // хэндлер для изменения данных о фокусе на полях формы
     const handleInputFocus = (evt : 
         React.ChangeEvent<HTMLInputElement>) => {
         setState((prev) => ({ ...prev, focus: evt.target.name as Focused}));
@@ -94,6 +96,7 @@ export const PaymentForm = () => {
                     maxLength={3}
                     className={styles.formInput}
                 />
+                
                 <button className={styles.button} type="submit">Оплатить</button>
             </form>
         </div>

@@ -8,6 +8,7 @@ export const Footer = () => {
     return (
         <footer className={styles.general}>
             <span className={styles.logo}><Logo /></span>
+
             <nav className={styles.navigationLayout}>
                 <ul className={styles.navigation}>
                     <li>
@@ -42,6 +43,7 @@ export const Footer = () => {
                     </div>
                 </div> 
             </nav>
+            
             <span className={styles.smmLinks}><SMMLinks /></span>
         </footer>
     )

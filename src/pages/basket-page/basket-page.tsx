@@ -11,9 +11,12 @@ export const BasketPage = () => {
     return (
         <>
             <h2 className={styles.heading}>Корзина</h2>
+
+            {/* Список товаров в корзине */}
             <div className={styles.general}>
                 {
                     basketItems.length ? (
+                        // если товары есть
                         <ul className={styles.list}>
                             {basketItems.map(elem => {
                                 return (
@@ -25,8 +28,11 @@ export const BasketPage = () => {
                             }
                         </ul>
                         )
+                        // если товаров нет
                     : <div>Товаров нет</div>
                 }
+
+                {/* Блок с общей ценой заказа и кнопкой для перехода к оплате */}
                 <div className={styles.totalWrapper}>
                     <BasketTotal sum={totalSum} />
                 </div>

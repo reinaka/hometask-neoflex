@@ -10,6 +10,7 @@ type TProps = {
 
 export const HeaderIcon:FC<TProps> = (props) => {
     const location = useLocation();
+    
     return (
         <NavLink to={props.to} state={{ from: location.pathname }}>
             <div className={styles.general}>
