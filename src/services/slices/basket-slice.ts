@@ -1,4 +1,4 @@
-import { basketActions } from "../actions/action-types-basket";
+import { createSlice } from '@reduxjs/toolkit';
 import { TBasketItem } from "../types";
 
 type TState = {
@@ -7,15 +7,17 @@ type TState = {
     totalQuantity : number
 }
 
-export const initialState = {
+export const initialState : TState = {
     items_basket : [],
     totalCost : 0,
     totalQuantity : 0
 }
 
-export const basketReducer = (state = initialState, action : basketActions) : TState => {
-    switch(action.type) {
-        case 'ADD_TO_BASKET' : {
+export const basketSlice = createSlice({
+    name: 'basket',
+    initialState,
+    reducers: {
+        addedToBasket(state, action) {
             let newQiantity = state.totalQuantity + 1;
             let newTotalCost = state.totalCost + action.payload.price;
             let contains = false;
@@ -52,8 +54,8 @@ export const basketReducer = (state = initialState, action : basketActions) : TS
                     totalQuantity: newQiantity
                 }
             }
-        }
-        case 'REMOVE_FROM_BASKET' : {
+        },
+        removedFromBasket(state, action) {
             let newArr = state.items_basket.filter((elem : TBasketItem) => {
                 return elem.item.id !== action.payload.id;
             });
@@ -65,8 +67,8 @@ export const basketReducer = (state = initialState, action : basketActions) : TS
                 totalCost: newTotalCost,
                 totalQuantity: newQiantity
             }
-        }
-        case 'INCREASE_BASKET_QUANTITY' : {
+        },
+        increasedBasketQuantity(state, action) {
             let newQiantity = state.totalQuantity + 1;
             let newTotalCost = state.totalCost + action.payload.price;
             let newArr = state.items_basket.map((elem : TBasketItem) => {
@@ -84,8 +86,8 @@ export const basketReducer = (state = initialState, action : basketActions) : TS
                 totalCost: newTotalCost,
                 totalQuantity: newQiantity
             }
-        }
-        case 'DECREASE_BASKET_QUANTITY' : {
+        },
+        decreasedBasketQuantity(state, action) {
             let newQiantity = state.totalQuantity - 1;
             let newTotalCost = state.totalCost - action.payload.price;
             let newArr = state.items_basket.map((elem : TBasketItem) => {
@@ -104,8 +106,8 @@ export const basketReducer = (state = initialState, action : basketActions) : TS
                 totalQuantity: newQiantity
             }
         }
-        default : {
-            return state;
-        }
     }
-}
+});
+
+export const { addedToBasket, removedFromBasket, increasedBasketQuantity, decreasedBasketQuantity } = basketSlice.actions;
+export default basketSlice.reducer;

@@ -1,5 +1,5 @@
-import { DECREASE_BASKET_QUANTITY, INCREASE_BASKET_QUANTITY, REMOVE_FROM_BASKET } from '../../services/actions/action-types-basket';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
+import { decreasedBasketQuantity, increasedBasketQuantity, removedFromBasket } from '../../services/slices/basket-slice';
 import styles from './quantity-controls.module.css';
 
 type TProps = {
@@ -14,15 +14,15 @@ export const QuantityControls = (props : TProps) => {
 
     // хэндлер для увеличения кол-ва
     const increaseQuantity = () => {
-        dispatch({type : INCREASE_BASKET_QUANTITY, payload: {id: props.id, price: props.price}})
+        dispatch(increasedBasketQuantity({id: props.id, price: props.price}))
     }
 
     // хэндлер для уменьшения кол-ва
     const decreaseQuantity = () => {
         if (props.quantity > 1) {
-            dispatch({type : DECREASE_BASKET_QUANTITY, payload: {id: props.id, price: props.price}})
+            dispatch(decreasedBasketQuantity({id: props.id, price: props.price}))
         } else if (props.quantity === 1) {
-            dispatch({type: REMOVE_FROM_BASKET, payload: {id: props.id, price: props.price, quantity: props.quantity}})
+            dispatch(removedFromBasket({id: props.id, price: props.price, quantity: props.quantity}))
         }
         
     }

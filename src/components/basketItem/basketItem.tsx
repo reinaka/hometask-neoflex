@@ -3,7 +3,7 @@ import { TItem } from '../../services/types';
 import { QuantityControls } from '../quantity-controls/quantity-controls';
 import styles from './basketItem.module.css';
 import { useCallback } from 'react';
-import { REMOVE_FROM_BASKET } from '../../services/actions/action-types-basket';
+import { removedFromBasket } from '../../services/slices/basket-slice';
 
 type TProps = {
     item : TItem,
@@ -15,7 +15,7 @@ export const BasketItem = (props : TProps) => {
 
      // хэндлер удаления товара из корзины
     const deleteFromBasket = useCallback((props : TProps) => {
-        dispatch({type: REMOVE_FROM_BASKET, payload: {id: props.item.id, price: props.item.price, quantity: props.quantity}})
+        dispatch(removedFromBasket({id: props.item.id, price: props.item.price, quantity: props.quantity}))
     }, [dispatch]);
 
     return (

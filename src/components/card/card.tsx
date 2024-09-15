@@ -2,9 +2,9 @@ import styles from './card.module.css';
 import { TItem } from '../../services/types';
 import { useCallback } from 'react';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
-import { ADD_TO_BASKET } from '../../services/actions/action-types-basket';
 import { ADD_ITEM_DETAILS } from '../../services/actions/action-types-item-details';
 import { switchedFavourite } from '../../services/slices/all-items-slice';
+import { addedToBasket } from '../../services/slices/basket-slice';
 
 type TProps = {
     data: TItem,
@@ -16,7 +16,7 @@ export const Card = (props: TProps) => {
 
     // хэндлер добавления в корзину
     const addToBasket = useCallback((item : TItem) => {
-        dispatch({type: ADD_TO_BASKET, payload: item})
+        dispatch(addedToBasket(item))
     }, [dispatch]);
 
     // хэндлер выбора товара для просмотра деталей
