@@ -2,9 +2,9 @@ import styles from './card.module.css';
 import { TItem } from '../../services/types';
 import { useCallback } from 'react';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
-import { ADD_ITEM_DETAILS } from '../../services/actions/action-types-item-details';
 import { switchedFavourite } from '../../services/slices/all-items-slice';
 import { addedToBasket } from '../../services/slices/basket-slice';
+import { addedItemDetails } from '../../services/slices/current-item-slice';
 
 type TProps = {
     data: TItem,
@@ -21,7 +21,7 @@ export const Card = (props: TProps) => {
 
     // хэндлер выбора товара для просмотра деталей
     const openItemDetails = useCallback((item : TItem) => {
-        dispatch({type: ADD_ITEM_DETAILS, payload: item})
+        dispatch(addedItemDetails(item))
     }, [dispatch]);
 
     // хэндлер добавления товара в избранное/удаления из избранного

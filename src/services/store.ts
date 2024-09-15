@@ -1,15 +1,14 @@
 import { allItemsSlice } from './slices/all-items-slice';
 import { basketSlice } from './slices/basket-slice';
-import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import { currentItemReducer } from './reducers/current-item.reducer';
+import { currentItemSlice } from './slices/current-item-slice';
 
 export const store = configureStore({
-    reducer: combineReducers({
+    reducer: {
         allItems : allItemsSlice.reducer,
         basket : basketSlice.reducer,
-        currentItem : currentItemReducer,
-    }),
+        currentItem : currentItemSlice.reducer,
+    },
 });
 
 export type TStore = ReturnType<typeof store.getState>;
