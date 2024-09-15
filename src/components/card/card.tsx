@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
 import { ADD_TO_BASKET } from '../../services/actions/action-types-basket';
 import { ADD_ITEM_DETAILS } from '../../services/actions/action-types-item-details';
-import { SWITCH_FAVORITE } from '../../services/actions/action-types-allItems';
+import { switchedFavourite } from '../../services/slices/all-items-slice';
 
 type TProps = {
     data: TItem,
@@ -26,7 +26,7 @@ export const Card = (props: TProps) => {
 
     // хэндлер добавления товара в избранное/удаления из избранного
     const switchFavorite = useCallback((item : TItem) => {
-        dispatch({type: SWITCH_FAVORITE, payload: item.id})
+        dispatch(switchedFavourite(item.id))
     }, [dispatch]);
 
     return (

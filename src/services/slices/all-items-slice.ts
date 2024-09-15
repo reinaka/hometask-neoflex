@@ -1,12 +1,14 @@
-import { allItemsActions } from '../actions/action-types-allItems';
+import { createSlice } from '@reduxjs/toolkit';
 import { items } from '../data';
 import { TItem } from '../types';
 
-let initialState = items;
+const initialState = items;
 
-export const allItemsReducer = (state = initialState, action : allItemsActions) => {
-    switch(action.type) {
-        case 'SWITCH_FAVORITE' : {
+export const allItemsSlice = createSlice({
+    name: 'allItems',
+    initialState,
+    reducers: {
+        switchedFavourite(state, action) {
             let newArr = state.map((elem : TItem) => {
                 if (elem.id === action.payload) {
                     let newItem = {
@@ -20,8 +22,8 @@ export const allItemsReducer = (state = initialState, action : allItemsActions) 
             });
             return newArr;
         }
-        default : {
-            return state;
-        }
     }
-}
+});
+
+export const { switchedFavourite } = allItemsSlice.actions;
+export default allItemsSlice.reducer;

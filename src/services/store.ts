@@ -1,12 +1,15 @@
-import { rootReducer } from './reducers/root-reducer';
+import { allItemsSlice } from './slices/all-items-slice';
+import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { basketReducer } from './reducers/basket-reducer';
+import { currentItemReducer } from './reducers/current-item.reducer';
 
 export const store = configureStore({
-    reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-        serializableCheck: false
+    reducer: combineReducers({
+        allItems : allItemsSlice.reducer,
+        basket : basketReducer,
+        currentItem : currentItemReducer,
     }),
-    devTools: process.env.NODE_ENV !== 'production',
 });
 
 export type TStore = ReturnType<typeof store.getState>;
