@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../services/hooks/reduxTypes';
 import { switchedFavourite } from '../../services/slices/all-items-slice';
 import { addedToBasket } from '../../services/slices/basket-slice';
 import { addedItemDetails } from '../../services/slices/current-item-slice';
+import { toast } from 'sonner';
 
 type TProps = {
     data: TItem,
@@ -12,11 +13,13 @@ type TProps = {
 
 export const Card = (props: TProps) => {
     let data = props.data;
+
     const dispatch = useAppDispatch();
 
     // хэндлер добавления в корзину
     const addToBasket = useCallback((item : TItem) => {
-        dispatch(addedToBasket(item))
+        dispatch(addedToBasket(item));
+        toast(`Товар ${item.title} добавлен в корзину`);
     }, [dispatch]);
 
     // хэндлер выбора товара для просмотра деталей
@@ -39,12 +42,15 @@ export const Card = (props: TProps) => {
                 </svg>
                 {/* иконка избранного */}
                 <svg height="28" version="1.1" width="28" onClick={() => {switchFavorite(data)}}>
-                    <g transform="translate(0 -1028.4)"><path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill={data.favorite ? '#ef0833' : "#838383"}/></g>
+                    <g transform="translate(0 -1028.4)">
+                        <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z"
+                        fill={data.favorite ? '#ef0833' : "#838383"}/>
+                    </g>
                 </svg>
             </div>
 
             {/* картинка товара */}
-            <div className={styles.image}>
+            <div className={styles.image} onClick={() => {openItemDetails(data)}}>
                 <img src={data.img} alt={data.title}/>
             </div>
 

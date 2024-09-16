@@ -3,6 +3,7 @@
     position: sticky;
     top: 0;
     background: rgba(234, 234, 234, 0.8);
+    backdrop-filter: blur(3px);
     z-index: 20;
 }
 

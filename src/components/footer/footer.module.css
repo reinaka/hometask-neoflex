@@ -46,7 +46,6 @@
 
 .additionalNavigation input[type=radio]:checked + label {
 	color: #FFA542;
-    font-weight: 700;
 }
 
 .navigation li {

@@ -8,6 +8,7 @@ import { selectItemDetails } from "../../services/selector-functions";
 import { useCallback } from "react";
 import { ItemDetailsModal } from "../../components/modal/item-details-modal/item-details-modal";
 import { deletedItemDetails } from "../../services/slices/current-item-slice";
+import { Toaster } from "sonner";
 
 export const MainLayoutPage = () => {
     let itemDetails = useAppSelector(selectItemDetails);
@@ -20,6 +21,7 @@ export const MainLayoutPage = () => {
     return (
         <>
             <div className={itemDetails.selectedItem ?  `${styles.general} ${styles.noScroll}` : styles.general}>
+                <Toaster />
                 <Header />
                 <main className={styles.main}>
                     <Outlet />
