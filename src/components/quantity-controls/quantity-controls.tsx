@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
-import { decreasedBasketQuantity, increasedBasketQuantity, removedFromBasket } from '../../services/slices/basket-slice';
+import { decreasedCartQuantity, increasedCartQuantity, removedFromCart } from '../../services/slices/cart-slice';
 import styles from './quantity-controls.module.css';
 
 type TProps = {
@@ -14,15 +14,15 @@ export const QuantityControls = (props : TProps) => {
 
     // хэндлер для увеличения кол-ва
     const increaseQuantity = () => {
-        dispatch(increasedBasketQuantity({id: props.id, price: props.price}))
+        dispatch(increasedCartQuantity({id: props.id, price: props.price}))
     }
 
     // хэндлер для уменьшения кол-ва
     const decreaseQuantity = () => {
         if (props.quantity > 1) {
-            dispatch(decreasedBasketQuantity({id: props.id, price: props.price}))
+            dispatch(decreasedCartQuantity({id: props.id, price: props.price}))
         } else if (props.quantity === 1) {
-            dispatch(removedFromBasket({id: props.id, price: props.price, quantity: props.quantity}))
+            dispatch(removedFromCart({id: props.id, price: props.price, quantity: props.quantity}))
         }
         
     }

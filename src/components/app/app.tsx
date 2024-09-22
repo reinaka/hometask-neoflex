@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { MainLayoutPage } from "../../pages/main-layout-page/main-layout-page";
-import { BasketPage } from "../../pages/basket-page/basket-page";
+import { CartPage } from "../../pages/cart-page/cart-page";
 import { MainPage } from "../../pages/main-page/main-page";
 import { FavouritesPage } from "../../pages/favourites-page/favourites-page";
 import { ContactsPage } from "../../pages/contacts-page/contacts-page";
@@ -12,7 +12,7 @@ export const App = () => {
         <Routes>
             <Route path="/" element={<MainLayoutPage />}>
                 <Route path="/" element={<MainPage />} />
-                <Route path="/basket" element={<BasketPage />} />
+                <Route path="/shoppingCart" element={<CartPage />} />
                 <Route path="/favourites" element={<FavouritesPage />} />
                 <Route path="/contacts" element={<ContactsPage />} />
                 <Route path="/payment" element={<PaymentPage />} />

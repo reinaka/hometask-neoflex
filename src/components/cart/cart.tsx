@@ -1,9 +1,9 @@
-import styles from './card.module.css';
+import styles from './cart.module.css';
 import { TItem } from '../../services/types';
 import { useCallback } from 'react';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
 import { switchedFavourite } from '../../services/slices/all-items-slice';
-import { addedToBasket } from '../../services/slices/basket-slice';
+import { addedToCart } from '../../services/slices/cart-slice';
 import { addedItemDetails } from '../../services/slices/current-item-slice';
 import { toast } from 'sonner';
 
@@ -11,14 +11,14 @@ type TProps = {
     data: TItem,
 }
 
-export const Card = (props: TProps) => {
+export const Cart = (props: TProps) => {
     let data = props.data;
 
     const dispatch = useAppDispatch();
 
     // хэндлер добавления в корзину
-    const addToBasket = useCallback((item : TItem) => {
-        dispatch(addedToBasket(item));
+    const addToCart = useCallback((item : TItem) => {
+        dispatch(addedToCart(item));
         toast(`Товар ${item.title} добавлен в корзину`);
     }, [dispatch]);
 
@@ -70,7 +70,7 @@ export const Card = (props: TProps) => {
                     <span>{data.rate}</span>
                 </div>
                 {/* конопка купить */}
-                <button className={styles.button} onClick={() => {addToBasket(data)}}>Купить</button>
+                <button className={styles.button} onClick={() => {addToCart(data)}}>Купить</button>
             </div> 
         </div>
     )

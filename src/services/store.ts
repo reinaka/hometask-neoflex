@@ -1,12 +1,12 @@
 import { allItemsSlice } from './slices/all-items-slice';
-import { basketSlice } from './slices/basket-slice';
+import { cartSlice } from './slices/cart-slice';
 import { configureStore } from '@reduxjs/toolkit';
 import { currentItemSlice } from './slices/current-item-slice';
 
 export const store = configureStore({
     reducer: {
         allItems : allItemsSlice.reducer,
-        basket : basketSlice.reducer,
+        cart : cartSlice.reducer,
         currentItem : currentItemSlice.reducer,
     },
 });

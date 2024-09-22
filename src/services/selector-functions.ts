@@ -5,15 +5,15 @@ export function selectAllItems (store : TStore) {
 }
 
 export function selectTotalQuantity (store : TStore) {
-    return store.basket.totalQuantity;
+    return store.cart.totalQuantity;
 }
 
 export function selectTotalCost (store : TStore) {
-    return store.basket.totalCost;
+    return store.cart.totalCost;
 }
 
-export function selectBasket (store : TStore) {
-    return store.basket.items_basket;
+export function selectCart (store : TStore) {
+    return store.cart.items_cart;
 }
 
 export function selectItemDetails (store : TStore) {

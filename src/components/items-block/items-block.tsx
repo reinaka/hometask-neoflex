@@ -1,4 +1,4 @@
-import { Card } from "../card/card";
+import { Cart } from "../cart/cart";
 import { TItem } from "../../services/types";
 import styles from './items-block.module.css';
 
@@ -17,7 +17,7 @@ export const ItemsBlock = (props: TProps) => {
                         props.data.map((item : TItem) => {
                             return (
                                 <li key={item.id}>
-                                    <Card data={item} />
+                                    <Cart data={item} />
                                 </li>
                             )
                         })

@@ -1,27 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { TBasketItem } from "../types";
+import { TCartItem } from "../types";
 
 type TState = {
-    items_basket : TBasketItem[] | [],
+    items_cart : TCartItem[] | [],
     totalCost : number, 
     totalQuantity : number
 }
 
 export const initialState : TState = {
-    items_basket : [],
+    items_cart : [],
     totalCost : 0,
     totalQuantity : 0
 }
 
-export const basketSlice = createSlice({
-    name: 'basket',
+export const cartSlice = createSlice({
+    name: 'cart',
     initialState,
     reducers: {
-        addedToBasket(state, action) {
+        addedToCart(state, action) {
             let newQiantity = state.totalQuantity + 1;
             let newTotalCost = state.totalCost + action.payload.price;
             let contains = false;
-            let newArr = state.items_basket.map((elem : TBasketItem) => {
+            let newArr = state.items_cart.map((elem : TCartItem) => {
                 // проверяем, есть ли уже в корзине товар в таким айдишником
                 if (elem.item.id === action.payload.id) {
                     let newQuantity = elem.quantity + 1;
@@ -38,7 +38,7 @@ export const basketSlice = createSlice({
             if (contains) {
                 return {
                     ...state,
-                    items_basket: newArr,
+                    items_cart: newArr,
                     totalCost: newTotalCost,
                     totalQuantity: newQiantity
                 }
@@ -49,29 +49,29 @@ export const basketSlice = createSlice({
                 }
                 return {
                     ...state,
-                    items_basket: [...state.items_basket, newItem],
+                    items_cart: [...state.items_cart, newItem],
                     totalCost: newTotalCost,
                     totalQuantity: newQiantity
                 }
             }
         },
-        removedFromBasket(state, action) {
-            let newArr = state.items_basket.filter((elem : TBasketItem) => {
+        removedFromCart(state, action) {
+            let newArr = state.items_cart.filter((elem : TCartItem) => {
                 return elem.item.id !== action.payload.id;
             });
             let newQiantity = state.totalQuantity - action.payload.quantity;
             let newTotalCost = state.totalCost - (action.payload.price * action.payload.quantity);
             return {
                 ...state,
-                items_basket: newArr,
+                items_cart: newArr,
                 totalCost: newTotalCost,
                 totalQuantity: newQiantity
             }
         },
-        increasedBasketQuantity(state, action) {
+        increasedCartQuantity(state, action) {
             let newQiantity = state.totalQuantity + 1;
             let newTotalCost = state.totalCost + action.payload.price;
-            let newArr = state.items_basket.map((elem : TBasketItem) => {
+            let newArr = state.items_cart.map((elem : TCartItem) => {
                 if (elem.item.id === action.payload.id) {
                     let newItem = {
                         item: elem.item,
@@ -82,15 +82,15 @@ export const basketSlice = createSlice({
             })
             return {
                 ...state,
-                items_basket: newArr,
+                items_cart: newArr,
                 totalCost: newTotalCost,
                 totalQuantity: newQiantity
             }
         },
-        decreasedBasketQuantity(state, action) {
+        decreasedCartQuantity(state, action) {
             let newQiantity = state.totalQuantity - 1;
             let newTotalCost = state.totalCost - action.payload.price;
-            let newArr = state.items_basket.map((elem : TBasketItem) => {
+            let newArr = state.items_cart.map((elem : TCartItem) => {
                 if (elem.item.id === action.payload.id) {
                         let newItem = {
                             item: elem.item,
@@ -101,13 +101,16 @@ export const basketSlice = createSlice({
             });
             return {
                 ...state,
-                items_basket: newArr,
+                items_cart: newArr,
                 totalCost: newTotalCost,
                 totalQuantity: newQiantity
             }
+        },
+        removedAllItems() {
+            return initialState;
         }
     }
 });
 
-export const { addedToBasket, removedFromBasket, increasedBasketQuantity, decreasedBasketQuantity } = basketSlice.actions;
-export default basketSlice.reducer;
+export const { addedToCart, removedFromCart, increasedCartQuantity, decreasedCartQuantity, removedAllItems } = cartSlice.actions;
+export default cartSlice.reducer;

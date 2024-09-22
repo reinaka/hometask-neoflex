@@ -1,12 +1,12 @@
-import { BasketTotal } from '../../components/basket-total/basket-total';
-import { BasketItem } from '../../components/basketItem/basketItem';
+import { CartTotal } from '../../components/cart-total/cart-total';
+import { CartItem } from '../../components/cart-item/cart-item';
 import { useAppSelector } from '../../services/hooks/reduxTypes';
-import { selectBasket, selectTotalCost } from '../../services/selector-functions';
-import styles from './basket-page.module.css';
+import { selectCart, selectTotalCost } from '../../services/selector-functions';
+import styles from './cart-page.module.css';
 
-export const BasketPage = () => {
+export const CartPage = () => {
     let totalSum = useAppSelector(selectTotalCost);
-    let basketItems = useAppSelector(selectBasket);
+    let cartItems = useAppSelector(selectCart);
 
     return (
         <>
@@ -15,13 +15,13 @@ export const BasketPage = () => {
             {/* Список товаров в корзине */}
             <div className={styles.general}>
                 {
-                    basketItems.length ? (
+                    cartItems.length ? (
                         // если товары есть
                         <ul className={styles.list}>
-                            {basketItems.map(elem => {
+                            {cartItems.map(elem => {
                                 return (
                                     <li key={elem.item.id}>
-                                        <BasketItem item={elem.item} quantity={elem.quantity}/>
+                                        <CartItem item={elem.item} quantity={elem.quantity}/>
                                     </li>
                                     )
                                 })
@@ -35,7 +35,7 @@ export const BasketPage = () => {
                 {/* Блок с общей ценой заказа и кнопкой для перехода к оплате (отображается только в случае, если сумма > 0) */}
                 {totalSum 
                     ? (<div className={styles.totalWrapper}>
-                        <BasketTotal sum={totalSum} />
+                        <CartTotal sum={totalSum} />
                     </div>)
                     : <></>
                 }               

@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { z } from 'zod';
 import { clearNumber, formatCreditCardNumber, formatCVC, formatExpirationDate} from './utils';
 import { PaymentFormError } from './payment-form-error';
+import { useAppDispatch } from '../../services/hooks/reduxTypes';
+import { removedAllItems } from '../../services/slices/cart-slice';
 
 export const schemaPaymentForm = z.object({
     number: z.number().min(16).max(16),
@@ -16,7 +18,9 @@ export const schemaPaymentForm = z.object({
 
 export type PaymentFormT = z.infer<typeof schemaPaymentForm>;
 
-export const PaymentForm = () => {
+export const PaymentForm = ({ setIsPayment } : { setIsPayment: React.Dispatch<React.SetStateAction<boolean>>}) => {
+    const dispatch = useAppDispatch();
+
     const [state, setState] = useState({
         number: '',
         expiry: '',
@@ -32,7 +36,7 @@ export const PaymentForm = () => {
         },
         handleSubmit,
     } = useForm({
-            mode: "onSubmit",
+            mode: "onBlur",
         });
     // хэндлер для изменения данных в полях формы
     const handleInputChange = (evt : React.ChangeEvent<HTMLInputElement>) => {
@@ -59,6 +63,8 @@ export const PaymentForm = () => {
     const handleFormSubmit = (data : any) => {
         data.number = clearNumber(data.number);
         data.expiry = clearNumber(data.expiry);
+        setIsPayment(true);
+        dispatch(removedAllItems());
     }
     
     return (

@@ -10,7 +10,7 @@ export type TItem = {
     favorite: boolean
 }
 
-export type TBasketItem = {
+export type TCartItem = {
     item : TItem,
     quantity : number
 }

@@ -17,7 +17,7 @@ export const Footer = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/basket">
+                        <NavLink to="/shoppingCart">
                             Корзина
                         </NavLink>
                     </li>

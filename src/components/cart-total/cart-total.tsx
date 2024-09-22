@@ -1,11 +1,11 @@
-import styles from './basket-total.module.css';
+import styles from './cart-total.module.css';
 import { NavLink } from 'react-router-dom';
 
 type TProps = {
     sum : number
 }
 
-export const BasketTotal = (props : TProps) => {
+export const CartTotal = (props : TProps) => {
     return (
         <div className={styles.general}>
             <div className={styles.text}>
