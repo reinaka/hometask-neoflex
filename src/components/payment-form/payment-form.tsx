@@ -4,16 +4,17 @@ import { useState } from 'react';
 import styles from './payment-form.module.css';
 import { useForm } from "react-hook-form";
 import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { clearNumber, formatCreditCardNumber, formatCVC, formatExpirationDate} from './utils';
 import { PaymentFormError } from './payment-form-error';
 import { useAppDispatch } from '../../services/hooks/reduxTypes';
 import { removedAllItems } from '../../services/slices/cart-slice';
 
 export const schemaPaymentForm = z.object({
-    number: z.number().min(16).max(16),
-    expiry: z.number().min(4).max(4),
-    cvc: z.number().min(3).max(3),
-    name: z.string().min(2),
+    number: z.string().min(19, {message: "Минимум 16 символов"}).max(19, {message: "Максимум 16 символов"}),
+    expiry: z.string().min(5, {message: "Минимум 4 символа"}).max(5, {message: "Максимум 4 символа"}),
+    cvc: z.string().min(3, {message: "Минимум 3 символа"}).max(3, {message: "Максимум 3 символа"}),
+    name: z.string().min(2, {message: "Минимум 2 символа"}),
 });
 
 export type PaymentFormT = z.infer<typeof schemaPaymentForm>;
@@ -35,7 +36,8 @@ export const PaymentForm = ({ setIsPayment } : { setIsPayment: React.Dispatch<Re
             errors,
         },
         handleSubmit,
-    } = useForm({
+    } = useForm<PaymentFormT>({
+            resolver: zodResolver(schemaPaymentForm),
             mode: "onBlur",
         });
     // хэндлер для изменения данных в полях формы
@@ -59,8 +61,7 @@ export const PaymentForm = ({ setIsPayment } : { setIsPayment: React.Dispatch<Re
         setState((prev) => ({ ...prev, focus: evt.target.name as Focused}));
     }
 
-    // REMOVE ANY WHEN FINISH WITH ZOD
-    const handleFormSubmit = (data : any) => {
+    const handleFormSubmit = (data : PaymentFormT) => {
         data.number = clearNumber(data.number);
         data.expiry = clearNumber(data.expiry);
         setIsPayment(true);

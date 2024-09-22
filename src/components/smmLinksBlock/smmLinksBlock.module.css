@@ -10,6 +10,12 @@
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .socialMediaLinks {
+        justify-content: start;
+    }
+}
+
 @media (max-width: 576px) {
     .socialMediaLinks {
         gap: 8px;

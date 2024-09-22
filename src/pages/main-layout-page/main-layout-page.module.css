@@ -20,13 +20,13 @@
 }
 
 @media (max-width: 1200px) {
-    .general {
+    .main {
         max-width: 1050px;
     }
 }
 
 @media (max-width: 1100px) {
-    .general {
+    .main {
         max-width: 90%;
     }
 }

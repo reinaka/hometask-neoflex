@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90dvw;
+    width: 400px;
+    gap: 10px;
+}
+
+.text {
+    text-align: center;
+}
+
+.link, .link:visited {
+    color: #fea543;
+}
