@@ -14,6 +14,14 @@
     font-size: 17px;
 }
 
+.navigation a:hover span {
+    color: #FFA542;
+}
+
+.navigation li a:hover {
+    color: #FFA542;
+}
+
 .navigation a, .navigation a:visited{
     color: #000;
 }

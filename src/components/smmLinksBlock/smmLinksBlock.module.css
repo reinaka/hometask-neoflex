@@ -10,6 +10,10 @@
     cursor: pointer;
 }
 
+.socialMediaLinks a:hover svg path {
+    fill: #FFA542;
+}
+
 @media (max-width: 992px) {
     .socialMediaLinks {
         justify-content: start;
