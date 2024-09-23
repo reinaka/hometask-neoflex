@@ -22,10 +22,10 @@ export const MainLayoutPage = () => {
         <>
             <div className={itemDetails.selectedItem ?  `${styles.general} ${styles.noScroll}` : styles.general}>
                 <Toaster />
-                <Header />
-                <main className={styles.main}>
-                    <Outlet />
-                </main>
+                    <Header />
+                    <main className={styles.main}>
+                        <Outlet />
+                    </main>
                 <Footer />
             </div>
 

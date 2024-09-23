@@ -1,0 +1,30 @@
+.general {
+    display: none;
+}
+
+.burgerAndLogo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.open {
+    position: fixed;
+    z-index: 100;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hiddden;
+    top: 0;
+    right: 0;
+    background: #fff;
+}
+
+@media (max-width: 576px) {
+    .general {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 22px;
+    }
+}

@@ -3,63 +3,7 @@
     max-width: 1110px;
     background-color: #fff;
     border-radius: 30px 30px 0px 0px;
-    padding: 29px 27px 33px 29px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     margin: 20px auto 0 auto;
-}
-
-.navigationLayout {
-    max-width: 427px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.navigation {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-weight: 400;
-    font-size: 17px;
-}
-
-.navigation a, .navigation a:visited{
-    color: #000;
-}
-
-.additionalNavigation {
-    display: flex;
-    flex-direction: row;
-    gap: 17px;
-}
-
-.additionalNavigation input[type=radio] {
-    display: none;
-}
-
-.additionalNavigation input[type=radio] + label {
-    cursor: pointer;
-}
-
-.additionalNavigation input[type=radio]:checked + label {
-	color: #FFA542;
-    font-weight: bold;
-}
-
-.navigation li {
-    cursor: pointer;
-}
-
-.navigation li:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-.icon {
-    width: 20px;
-    height: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -77,51 +21,6 @@
 @media (max-width: 992px) {
     .general {
         gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .general {
-        /* gap: 30px; */
-        display: grid;
-        padding-bottom: 20px;
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: 1fr 2fr;
-        grid-template-areas: 
-            "left1 right1"
-            "left2 right1";
-    }
-
-    .footer {
-        grid-area: left1;
-    }
-
-    .navigationLayout {
-        grid-area: right1;
-    }
-
-    .smmLinks {
-        grid-area: left2;
-    }
-}
-
-@media (max-width: 576px) {
-    .navigationLayout {
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .navigation {
-        text-align: end;
-    }
-
-    .additionalNavigation {
-        justify-content: flex-end;
-    }
-
-    .navigationLayout .navigation li {
-        margin-bottom: 4px;
-        text-align: end;
     }
 }
 

@@ -1,0 +1,35 @@
+.general {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 29px 27px 33px 29px;
+}
+
+@media (max-width: 992px) {
+    .general {
+        display: grid;
+        padding-bottom: 20px;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: 
+            "left1 right1"
+            "left2 right1";
+    }
+
+    .logo {
+        grid-area: left1;
+    }
+    .smmLinks {
+        grid-area: left2;
+    }
+
+    .content {
+        grid-area: right1;
+    }
+}
+
+@media (max-width: 576px) {
+    .general {
+        display: none;
+    }
+}

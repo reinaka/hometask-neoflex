@@ -1,0 +1,80 @@
+.navigationLayout {
+    max-width: 427px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.navigation a, .navigation a:visited{
+    color: #000;
+}
+
+.additionalNavigation {
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+}
+
+.additionalNavigation input[type=radio] {
+    display: none;
+}
+
+.additionalNavigation input[type=radio] + label {
+    cursor: pointer;
+}
+
+.additionalNavigation input[type=radio]:checked + label {
+	color: #FFA542;
+    font-weight: bold;
+}
+
+.navigation li {
+    cursor: pointer;
+}
+
+.navigation li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 992px) {
+    .navigationLayout {
+        max-width: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .navigationLayout {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .navigation {
+        display: flex;
+        text-align: end;
+        gap: 10px;
+    }
+
+    .additionalNavigation {
+        justify-content: flex-end;
+    }
+
+    .navigationLayout .navigation li {
+        margin-bottom: 4px;
+        text-align: end;
+    }
+}
