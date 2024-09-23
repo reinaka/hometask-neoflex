@@ -1,46 +1,28 @@
-# Getting Started with Create React App
+# Тестовое задание для Neoflex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Проект является реализацией тестового задания для Neoflex.
 
-## Available Scripts
+Ссылка на размещенный на vercel проект: [QPICK](https://hometask-neoflex.vercel.app/)
 
-In the project directory, you can run:
+Для того, чтобы запустить проект локально, нужно выполнить скрипт `npm start` из корня проекта и перейти на http://localhost:3000 в браузере
 
-### `npm start`
+## Использованные инструменты
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Проект написан c использованием библиотеки React
+- Для маршрутизации применен React Router
+- Язык - TypeScript
+- Стили оформлены с помощью CSS Modules
+- В качестве стейт-менеджера используется Redux (Redux ToolKit)
+- Для реализации формы оплаты применены библиотеки [React Credit Cards 2](https://www.npmjs.com/package/react-credit-cards-2), [React Hook Form](https://www.npmjs.com/package/react-hook-form) и [zod](https://www.npmjs.com/package/zod)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Реализация
+В проекте имеется 5 страниц:
+- каталог товаров
+- корзина с приобретенными товарами
+- список избранных товаров
+- страница с формой оплаты
+- 404 страница
 
-### `npm test`
+Реализована возможность добавления и удаления товаров в/из корзину(ы), добавления и удаление товаров в/из избранное(ого). При клике на иконку i в карточке товара и на изображение товара открывается модальное окно с деталями о товаре. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Сайт написан с учетом разных размеров экрана, интерфейс адаптивный
